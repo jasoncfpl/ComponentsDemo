@@ -66,12 +66,8 @@ fun routeButton() {
 }
 
 fun goLoginActivity(context: Context) {
-
-    val clazz = SimpleRouter.navigation("login")
-    if (clazz != null) {
-        val intent = Intent(context,clazz)
-        context.startActivity(intent)
-    }
+    //根据路由跳转
+    SimpleRouter.navigation(context,"login")
 }
 
 @Preview(showBackground = true)

@@ -1,5 +1,8 @@
 package com.example.testcomponentsapplication.router
 
+import android.content.Context
+import android.content.Intent
+
 object SimpleRouter {
 
 
@@ -9,8 +12,16 @@ object SimpleRouter {
         routes[path] = Class.forName(clazzName)
     }
 
-    fun navigation(path: String) :Class<*>? {
+    fun getNavigationClass(path: String) :Class<*>? {
         return routes[path]
+    }
+
+    fun navigation(context: Context, path: String) {
+        val clazz = routes[path]
+        if (clazz != null) {
+            val intent = Intent(context,clazz)
+            context.startActivity(intent)
+        }
     }
 
 
