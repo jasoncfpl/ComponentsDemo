@@ -17,6 +17,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
+import com.example.testcomponentsapplication.router.Postcard
 import com.example.testcomponentsapplication.router.SimpleRouter
 import com.example.testcomponentsapplication.ui.theme.TestComponentsApplicationTheme
 
@@ -67,7 +68,9 @@ fun routeButton() {
 
 fun goLoginActivity(context: Context) {
     //根据路由跳转
-    SimpleRouter.navigation(context,"login")
+    SimpleRouter.build("login")
+        .withString("email","xxxxx@gmail.com")
+        .navigation(context)
 }
 
 @Preview(showBackground = true)
